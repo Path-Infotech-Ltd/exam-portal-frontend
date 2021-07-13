@@ -1,0 +1,64 @@
+<mat-card class="example-card" *ngIf="user">
+        <h1>Account Details</h1>
+        <mat-card-content>
+                <div class="bootstrap-wrapper">
+                    <div class="container">
+                        <div class="container text-center">
+                         <label class="hoverable" for="fileInput">
+                            <img [src]="retrievedImage"> 
+                            <!-- <img [src]="retrievedImage ? retrievedImage : 'https://www.w3schools.com/howto/img_avatar.png'">  -->
+
+                            <div class="hover-text">Change Profile Picture</div>
+                            <div class="background"></div>
+                        </label>
+                            <br/>
+                            <input id="fileInput" type='file' (change)="onFileChanged($event)">
+                            <!-- <button *ngIf="deletImage" (click)="delete()" >delete</button> -->
+                            <button mat-raised-button color="primary" (click)="delete()">DELETE PROFILE PICTURE</button>
+                        </div>
+                    <div class="row">
+                            <div class="col-md-10 offset-md-1">
+                                <!-- table details -->'
+                                <table class="table text-center">
+                                    <tr>
+                                      <td>Username</td>
+                                      <td>{{user.username}}</td>
+                                    </tr>
+                                    <tr>
+                                       <td>User Id</td>
+                                       <td>EXAM{{user.id}}</td>
+                                    </tr>
+                                    <tr *ngIf="user.phone">
+                                        <td>Phone No</td>
+                                        <td>{{user.phone}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Role</td>
+                                        <td>{{user.authorities[0].authority}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Status</td>
+                                        <td> {{user.enabled ? "ACTIVE" : "NOT ACTIVE"}} 
+                                            <span *ngIf="user.enabled; else elseBlock" class="dot_active mt10 ml10"></span>
+                                            <ng-template #elseBlock>
+                                                <span  class="dot_inactive mt10 ml10"></span>
+                                            </ng-template>
+                                        </td>
+                                    </tr>
+                                    
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </mat-card-content>
+        <mat-card-actions class="text-center">
+            <button mat-raised-button color="primary">UPDATE</button>
+            <button mat-raised-button color="warn">SHARE</button>
+        </mat-card-actions>
+</mat-card>
+<!-- {{posts | json}} -->
+<!-- {{getDeleteProfilePicData | json}} -->
+
+      

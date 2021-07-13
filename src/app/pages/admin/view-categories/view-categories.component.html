@@ -1,0 +1,55 @@
+<mat-card class="mb10">
+    <h1>All Categories</h1>
+
+    <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4 text-center">
+            <div class="container">
+                <button routerLink="/admin/add-category" mat-raised-button color="primary">
+                    Add category
+                </button>
+                <button class=" ml20" [routerLink]="'/admin/file-upload/'+jobname" mat-raised-button color="primary">
+                    <span class="material-icons">file_upload</span>Bulk Upload
+                </button>
+                <!-- <span class="material-icons ml10" routerLink="/admin/add-category" mat-raised-button color="primary">
+                    file_upload
+                    </span>Bulk Upload -->
+            </div>
+        </div>
+        <div class="col-md-6"> <mat-paginator [length]="categories.length" 
+            [pageSize]="pageSize"
+            [pageSizeOptions]="pageSizeOptions" (page)="onPageChanged($event)">
+        </mat-paginator></div>
+        </div>
+
+
+
+    <!-- <mat-paginator [length]="categories.length" 
+        [pageSize]="pageSize"
+        [pageSizeOptions]="pageSizeOptions" (page)="onPageChanged($event)">
+    </mat-paginator>
+    <div class="container text-center mt20">
+        <button class="text cenetr" routerLink="/admin/add-category" mat-raised-button color="primary">
+            Add category
+        </button>
+    </div> -->
+</mat-card>
+
+<mat-card class="mb10" *ngFor="let c of categories">
+    
+    <mat-list>
+        <mat-list-item>
+            <mat-icon mat-list-icon>category</mat-icon>
+            <div mat-line><mat-card-title>{{c.title}}</mat-card-title></div>
+            <div mat-line><mat-card-content><p class="truncate">{{c.description}}</p></mat-card-content></div>
+            <div mat-line>Created By: {{c.createdBy}}</div>
+            <div mat-line>Created Date: {{c.createdDate}}</div>
+            <div mat-line> <br/>
+                <mat-card-action>
+                    <button (click)="deleteCategory(c.cid)" mat-raised-button color="warn">Delete category</button>
+                </mat-card-action>
+            </div>
+        </mat-list-item>
+    </mat-list>
+
+</mat-card>

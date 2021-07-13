@@ -1,0 +1,36 @@
+<mat-toolbar color="warn">
+        <a routerLink="/" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+          <mat-icon>menu_book</mat-icon>
+        </a>
+        <span>Exam-Portal</span>
+        <span class="example-spacer"></span>
+        <!-- {{ isLoggedIn }} {{user.username }}  -->
+        <a 
+        *ngIf="!isLoggedIn"
+        [routerLink]="'/login'" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+          <!-- <mat-icon>login</mat-icon> -->
+        Login
+        </a>
+        <a 
+        *ngIf="!isLoggedIn"
+        [routerLink]="'/signup'" mat-icon-button class="example-icon favorite-icon mr20 ml20" aria-label="Example icon-button with heart icon">
+        Register
+        </a>
+        
+        
+        <button 
+        *ngIf="isLoggedIn && user"
+        mat-button routerLink="/admin/profile"
+        class="example-icon favorite-icon  ml20" aria-label="Example icon-button with heart icon">
+       <b> {{user.username }}</b>
+      </button>
+        <!-- <div mat-card-avatar class="example-header-image"></div> -->
+        <!-- <div md-card-avatar [ngStyle]="{'background-image': 'url(' +/assets/yashkmr0680.jpeg + ')', 'background-size': 'cover'  }"></div> -->
+        <!-- <div class="profile-image"  [ngStyle]="{ 'background-image': 'url(' + image + ')'}"></div> -->
+        <!-- <img *ngIf="isLoggedIn && user" src="{{image}}" alt="Avatar" class="avatar"> -->
+        <img *ngIf="isLoggedIn && user" [src]="retrievedImage" alt="Avatar" class="avatar">
+        <a (click)="logout()" *ngIf="isLoggedIn"
+        mat-icon-button class="example-icon favorite-icon mr20 ml20" aria-label="Example icon-button with heart icon">
+       Logout
+        </a>
+      </mat-toolbar>

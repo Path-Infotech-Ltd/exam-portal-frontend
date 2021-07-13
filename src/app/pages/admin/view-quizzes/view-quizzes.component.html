@@ -1,0 +1,53 @@
+<mat-card>
+    <h1>All Quizzes</h1>
+    <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4 text-center">
+            <div class="container">
+                <button routerLink="/admin/add-quiz" mat-raised-button color="primary">
+                    Add Quiz
+                </button>
+                <button class=" ml20" [routerLink]="'/admin/file-upload/'+jobname" mat-raised-button color="primary">
+                    <span class="material-icons">file_upload</span>Bulk Upload
+                </button>
+            </div>
+        </div>
+        <div class="col-md-6"> <mat-paginator [length]="quizzes.length" 
+            [pageSize]="pageSize"
+            [pageSizeOptions]="pageSizeOptions" (page)="onPageChanged($event)">
+        </mat-paginator></div>
+        </div>
+<!-- <div class="container text-center mt20">
+    <button routerLink="/admin/add-quiz" mat-raised-button color="primary">
+        Add Quiz
+    </button>
+</div> -->
+    
+</mat-card>
+<mat-card class="mt10 mb10" *ngFor="let q of quizzes">
+    <mat-card-title>{{q.title}}</mat-card-title>
+    <mat-card-subtitle>{{q.category.title}}</mat-card-subtitle>
+     <!-- <mat-card-header><mat-card-title>{{q.title}}</mat-card-title>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{q.title}}</mat-card-title>
+        <mat-card-subtitle>{{q.category.title}}</mat-card-subtitle>
+    </mat-card-header> -->
+    <mat-card-content>
+        <p class="truncate">{{q.description}}</p>
+    </mat-card-content>
+    <mat-card-action>
+        <button [routerLink]="'/admin/view-questions/'+q.qId+'/'+q.title" 
+         mat-raised-button color="primary">Questions</button>
+        <button mat-raised-button color="primary" class="ml20">Max Marks: {{q.maxMarks}}</button>
+        <button mat-raised-button color="primary" class="ml20">Number of Questions: {{q.numberOfQuestions}}</button>
+        <button [routerLink]="'/admin/quiz/' + q.qId"
+                mat-raised-button 
+                color="primary" 
+                class="ml20">Update</button>
+        <button mat-raised-button color="primary" class="ml20">Attempts</button>
+        <button (click)="deleteQuiz(q.qId)" mat-raised-button color="primary" class="ml20">Delete</button>
+        <!-- <span color="primary" class="material-icons">delete</span>Delete Quiz -->
+    </mat-card-action>
+    
+</mat-card>
+<!-- {{quizzes | json}} -->

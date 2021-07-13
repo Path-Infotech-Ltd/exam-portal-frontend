@@ -1,0 +1,47 @@
+.fontstyle-italic { font-style: italic; }  
+.fontstyle-oblique { font-style: oblique; }  
+.fontstyle-normal { font-style: normal; }   
+
+.fontfamily-san { font-family: sans-serif; }  
+.fontfamily-serif { font-family: serif; }   
+.fontfamily-monospace { font-family: monospace; }   
+
+.color-red { color: red; }  
+.color-black { color: black; }  
+.color-purple { color: #9000A1; }   
+.color-rgb { color:rgb(0, 220, 98); }  
+
+.fontsize1 { font-size: 100%;  }   
+.fontsize2 {font-size:xx-small;  }  
+.fontsize3 {font-size:x-small;}
+.fontsize4 {font-size:small; } 
+.fontsize5 {font-size:medium;}   
+.fontsize6 {font-size:x-large; }    
+.fontsize7 {font-size:xx-large; }    
+.fontsize8 {font-size:smaller;}    
+.fontsize9 {font-size:larger; }    
+.fontsize10 {font-size:200%;}   
+.fontsize11 {font-size:20px;}
+
+.fontweight1 {font-weight:bold;}
+.fontweight2 {font-weight:bolder;} 
+.fontweight3 {font-weight:lighter;} 
+.fontweight4 {font-weight:100;} 
+.fontweight5 {font-weight:200;} 
+.fontweight6 {font-weight:300;} 
+.fontweight7 {font-weight:400;} 
+.fontweight8 {font-weight:500;} 
+.fontweight9 {font-weight:600;} 
+.fontweight10 {font-weight:700;} 
+.fontweight11 {font-weight:800;} 
+.fontweight12 {font-weight:900;}
+.fontweight13 { font-weight: normal; }   
+.fontweight14 { font-weight: 1000;}   
+.fontweight15 { font-weight: initial;}  
+.fontweight16 { font-weight: inherit; }   
+.fontweight17 {font-weight: unset; } 
+
+.textaligncenter{text-align: center;}
+.textalignleft{text-align: left;}
+.textalignright{text-align: right;}
+.textalignjustify{text-align: justify;}

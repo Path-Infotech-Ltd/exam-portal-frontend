@@ -1,0 +1,43 @@
+<!-- <mat-spinner *ngIf="quizzes.length == 0"></mat-spinner> -->
+<mat-card class="ml20 mr20">
+    <!-- {{quizzes | json}} -->
+    <h1>Available quizzes</h1>
+</mat-card>
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+        <div class="row mt20" *ngIf="quizzes">
+            <div class="col-md-4" *ngFor="let q of quizzes">
+               <mat-card class="mb20">
+                   <mat-card-header>
+                        <div mat-card-avatar class="example-header-image"></div>
+                        <mat-card-title>
+                                {{q.title}}
+                        </mat-card-title>
+                        
+                        <mat-card-subtitle>
+                            <h3><b>{{q.category.title}}</b></h3>
+                       </mat-card-subtitle>
+                   </mat-card-header>
+                   <mat-card-content>
+                       <p class="truncate">{{q.description}}</p>
+                   </mat-card-content>
+                   <mat-card-action>
+                       <button mat-raised-button color="primary">View</button>
+                       <button mat-raised-button 
+                            [routerLink]="'/instructions/'+q.qId" 
+                            color="warn" class="ml10">Start</button>
+                       <button mat-button>Ques: {{q.numberOfQuestions}}</button>
+                       <button mat-button color="warn">M.M: {{q.maxMarks}}</button>
+                   </mat-card-action>
+               </mat-card> 
+            </div>
+            <div class="col-md-12" *ngIf="quizzes.length == 0">
+                    <mat-card>
+                            <mat-card-content>
+                                <h1>No data in this category</h1>
+                            </mat-card-content>
+                    </mat-card>
+            </div>
+        </div>
+    </div>
+</div>

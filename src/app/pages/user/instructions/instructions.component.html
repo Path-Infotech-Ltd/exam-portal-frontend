@@ -1,0 +1,98 @@
+<!-- {{quiz | json}} -->
+<div class="bootstrap-wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <mat-card>
+                        <button mat-raised-button color="primary" (click)="backClicked()">
+                                <span class="material-icons">
+                                        keyboard_backspace
+                                </span>
+                                 Go back to Quizzes</button>
+                    <mat-card-header>
+                    <!-- Heading -->
+                    <mat-card-title class="mt20">
+                        <h2><b>Guidelines and instructions for the Candidates for Online Examination</b></h2>
+                    </mat-card-title>
+                    
+                    <mat-card-subtitle>
+                        <br/>
+                        <p class="fontweight2 fontfamily-san textalignjustify color-black ">It is an Online Examination system, fully computerized, user friendly having advanced
+                            security features making it fair, transparent and standardized.</p>
+                        <p class="fontweight2 fontfamily-san textalignjustify  color-black">The term end examination will be conducted in an online proctored mode. Candidate can
+                            take the test from the safe and secure environment of his/her home, with a
+                            desktop/laptop/smartphone (with a webcam) and an internet connection (un-interrupted
+                            internet speed is desirable).</p>
+                        <p class="fontweight2 fontfamily-san textalignjustify color-black">Candidates are requested to take the test honestly, ethically, and should follow all the
+                                instructions.
+                                
+                        </p>
+                    </mat-card-subtitle>
+                    <mat-card-title><br/>
+                        <h2><b>Basic Instructions for Online Examinations:</b></h2><br/>
+                        <h3><b>A. General information:</b></h3>
+                        <ul>
+                            <li class="fontsize5">The examination will comprise of Objective type Multiple Choice Questions (MCQs)</li>
+                            <li class="fontsize5">There are <b>{{quiz.numberOfQuestions}} questions</b> in this quiz.</li>
+                            <li class="fontsize5">All questions are compulsory and each carries <b>{{quiz.maxMarks/quiz.numberOfQuestions}} mark(s)</b>.</li>
+                            
+                            <!-- Let's assume the time taken for each question is 2 mins -->
+                            <li class="fontsize5">The total number of questions, duration of examination, will be different based on the 
+                                course. You have to submit this quiz within <b>{{quiz.numberOfQuestions*2}} minutes.</b></li>
+                            
+                            <li class="fontsize5">You can attempt the quiz any number of time.</li>
+                            <li class="fontsize5">The Subjects or topics covered in the exam will be as per the Syllabus.</li>
+                            <li class="fontsize5">There will be NO NEGATIVE MARKING for the wrong answers.</li>
+                        </ul>
+                        
+                        <h3><b>B. Information & Instructions:</b></h3>
+                        <ul>
+                            <li class="fontsize5">The examination does not require using any paper, pen, pencil and calculator</li>
+                            <li class="fontsize5">Every student will take the examination on a Laptop/Desktop/Smart Phone
+                            <li class="fontsize5">On computer screen every student will be given objective type type Multiple Choice Questions (MCQs)</li>
+                            <li class="fontsize5">Each student will get questions and answers in different order selected randomly from a fixed Question Databank</li>
+                            <li class="fontsize5">The students just need to click on the Right Choice / Correct option from the
+                            multiple choices /options given with each question. For Multiple Choice Questions, each question has four options, and the candidate has to click the appropriate
+                            option.</li>
+                        </ul>
+                        <h3><b>C. Attempting Quiz:</b></h3>
+                        <ul>
+                            <li class="fontsize5">Click <b>Start Quiz</b> button to start the quiz.</li>
+                            <li class="fontsize5">The time will start immediately after you click on the Start Test button.
+                            <li class="fontsize5">You cannot resume this quiz, if interrupted due to any reason</li>
+                            <li class="fontsize5">Scroll down to move to next question.</li>
+                            <li class="fontsize5">Click on Submit Test button on completion of the quiz.</li>
+                            <li class="fontsize5">Report of exam will get generate automatically in PDF format</li>
+                        </ul>
+                        <mat-divider></mat-divider>
+                        <br/>
+                        <h3><b>Extra Exam Attempt Will not be provided if,</b></h3>
+                        <ul>
+                            <li class="fontsize5">Student fails to appear for exam within specified timings</li>
+                            <li class="fontsize5">Student does not appear the papers</li>
+                            <li class="fontsize5">Student appears for exam late / face lack of time</li>
+                            <li class="fontsize5">Student ignores instructions and rules</li>
+                            <li class="fontsize5">Student does not submit the exam properly</li>
+                            <li class="fontsize5">Student face internet of power failure problems</li> 
+                        </ul>
+                    </mat-card-title>
+                    </mat-card-header>
+                    <!-- <mat-card-content class="ml20">
+                    
+                        <h1>{{quiz.title}}</h1>
+                        <p style="text-align: inherit">{{quiz.description}}</p>
+                        <mat-divider></mat-divider>
+
+                        <h1 class="mt20">Important Instructions</h1>
+                    </mat-card-content> -->
+                    <mat-card-actions class="text-center">
+                    <!-- Action -->
+                    <button (click)="startQuiz()" mat-raised-button color="primary">Start Quiz</button>
+                    </mat-card-actions>
+                    
+                </mat-card>
+                <p>&nbsp;</p>
+            </div>
+        </div>
+    </div>
+</div>
