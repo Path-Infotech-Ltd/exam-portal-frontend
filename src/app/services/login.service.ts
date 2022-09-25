@@ -20,7 +20,7 @@ export class LoginService {
   }
   // generate Token
   public generateToken(loginData:any){
-    return this.http.post(`${baseUrl}/generateToken`, loginData);
+    return this.http.post(`${baseUrl}/tokenController/generateToken`, loginData);
   }
 
   // login user: set token in localStorage

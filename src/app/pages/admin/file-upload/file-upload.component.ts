@@ -86,7 +86,8 @@ export class FileUploadComponent implements OnInit {
            this.errorMsg= 'Only csv file format is supported.';
             return ;
           }
-          this.fileUploadService.uploadProfilePicture(uploadFile).subscribe((response:any) => {
+          this.fileUploadService.uploadProfilePicture(uploadFile).subscribe(
+            (response:any) => {
             if (response.status === 200) {
               this.posts=response;
               if(response.body.status=='FAILURE'){
@@ -95,7 +96,8 @@ export class FileUploadComponent implements OnInit {
               return;
               }else{
                 console.log('onUpload response: '+this.posts);
-                this.message = 'File uploaded successfully';
+                this.message = response.body.errorDescription
+                // this.message = 'File uploaded successfully';
               
             }
             } else {

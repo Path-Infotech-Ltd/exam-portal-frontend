@@ -1,5 +1,6 @@
 <!-- {{maxMarks | json}} -->
 
+<!-- {{questions | json}} -->
 <div class="bootstrap-wrapper" *ngIf="!isSubmit">
     <div class="container-fluid">
         <div class="row">
@@ -15,14 +16,10 @@
               
                  <ul style="font-size: 12px; text-align: justify mr20">
                      <li>Quiz will get submitted automatically once timer reaches to 0.</li>
-                     <li>You can navigate to any questions if you have skipped it earlier</li>
-                     <li>Right click not allowed.</li>
-                     <li>Quiz will get submitted automatically once timer reaches to 0.</li>
-                     <li>You can navigate to any questions if you have skipped it earlier</li>
-                     <li>Right click not allowed.</li>
-                     <li>Quiz will get submitted automatically once timer reaches to 0.</li>
-                     <li>You can navigate to any questions if you have skipped it earlier</li>
-                     <li>Right click not allowed.</li>
+                     <li>Do not refresh the page otherwise you will get new questions.</li>
+                     <li>Do not switch the tabs.</li>
+                     <li>Do not minimize the window.</li>
+                     
                  </ul>
                 </mat-card>
             </div>
@@ -136,7 +133,8 @@
                                 </tr>
                                 <tr>
                                     <td>Marks Obtained</td>
-                                    <td>{{correctAnswer*2}}</td>
+                                    <!-- <td>{{correctAnswer*2}}</td> -->
+                                    <td>{{marksObtained}}</td>
                                     </tr>
                                 <!--<tr>
                                     <td>Status</td>
@@ -151,7 +149,7 @@
                             </table>
                         </mat-card-content>
                     <mat-card-actions class="text-center">
-                        <button mat-raised-button color="primary">PRINT</button>
+                        <button (click)="printPage()" mat-raised-button color="primary">PRINT</button>
                         <button mat-raised-button [routerLink]="'/user-dashboard/0'"
                         class="ml10" color="warn">HOME</button>
                     </mat-card-actions>

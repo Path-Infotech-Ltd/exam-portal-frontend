@@ -39,9 +39,9 @@ constructor(
       //  console.log("Questions :" , JSON.stringify(data));  
 
       this.timer = this.questions.length * 2 * 60; // Assume, Time per ques = 2 mins
-      this.questions.forEach((q)=>{
-        q['givenAnswer']='';
-      })
+      // this.questions.forEach((q)=>{
+      //   q['givenAnswer']='';
+      // })
         this.regulateTimer();
       },(error)=>{
         console.error("Error occured while loading data"+error)
@@ -89,22 +89,40 @@ constructor(
   }
 
   evalQuiz(){
-    this.isSubmit = true;
-    // Calculation
-    this.questions.forEach(q => {
-      if(q.givenAnswer==q.answer){
-        this.correctAnswer++;
-        let marksSingle = this.questions[0].quiz.maxMarks/this.questions.length;
-        this.marksObtained+=marksSingle;
-        console.log('marksSingle: ',marksSingle);
+// call to server to check questions 
+    this._question.evalQuiz(this.questions).subscribe(
+      (data:any)=>{
+        console.log('evalQuiz: ',data);
+        this.marksObtained=parseFloat(Number(data.marksObtained).toFixed(2));
+        this.correctAnswer=data.correctAnswer;
+        this.questionAttempted=data.questionAttempted;
+        this.isSubmit = true;
+      },(error)=>{
+        console.log('Some error occured while evaluating quiz: ',error);
       }
-      if(q.givenAnswer.trim()!=''){
-        this.questionAttempted++;
-      }
-    });
+    )
+
+// client call
+    // this.isSubmit = true;
+    // // Calculation
+    // this.questions.forEach(q => {
+    //   if(q.givenAnswer==q.answer){
+    //     this.correctAnswer++;
+    //     let marksSingle = this.questions[0].quiz.maxMarks/this.questions.length;
+    //     this.marksObtained+=marksSingle;
+    //     console.log('marksSingle: ',marksSingle);
+    //   }
+    //   if(q.givenAnswer.trim()!=''){
+    //     this.questionAttempted++;
+    //   }
+    // });
     console.log('CorrectAnswer: ',this.correctAnswer);
     console.log('MarksObtained: ',this.marksObtained);
     console.log('Question Attempted: ',this.questionAttempted);
     console.log('maxMarks : ',this.questions[0].quiz.maxMarks);
+  }
+
+  printPage(){
+    window.print();
   }
 }

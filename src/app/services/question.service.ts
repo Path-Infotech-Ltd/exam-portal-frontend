@@ -29,4 +29,9 @@ export class QuestionService {
   public getQuestionsOfQuizForTest(qid){
     return this._http.get(`${baseUrl}/question/quiz/${qid}`);
   }
+
+   // eval quiz
+   public evalQuiz(questions){
+    return this._http.post(`${baseUrl}/question/eval-quiz`, questions);
+  }
 }

@@ -19,15 +19,15 @@
                        </mat-card-subtitle>
                    </mat-card-header>
                    <mat-card-content>
-                       <p class="truncate">{{q.description}}</p>
+                       <p class="truncate"><b>{{q.description}}</b></p>
                    </mat-card-content>
                    <mat-card-action>
                        <button mat-raised-button color="primary">View</button>
                        <button mat-raised-button 
                             [routerLink]="'/instructions/'+q.qId" 
                             color="warn" class="ml10">Start</button>
-                       <button mat-button>Ques: {{q.numberOfQuestions}}</button>
-                       <button mat-button color="warn">M.M: {{q.maxMarks}}</button>
+                       <br><button mat-button color="primary"><b>Ques: {{q.numberOfQuestions}}</b></button>
+                       <button mat-button color="warn"><b>M.M: {{q.maxMarks}}</b></button>
                    </mat-card-action>
                </mat-card> 
             </div>

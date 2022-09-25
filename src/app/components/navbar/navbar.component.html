@@ -1,3 +1,4 @@
+<!-- {{this.menu | json}} -->
 <mat-toolbar color="warn">
         <a routerLink="/" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
           <mat-icon>menu_book</mat-icon>
@@ -5,9 +6,11 @@
         <span>Exam-Portal</span>
         <span class="example-spacer"></span>
         <!-- {{ isLoggedIn }} {{user.username }}  -->
+      
         <a 
         *ngIf="!isLoggedIn"
-        [routerLink]="'/login'" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        [routerLink]="'/login'"
+         mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
           <!-- <mat-icon>login</mat-icon> -->
         Login
         </a>

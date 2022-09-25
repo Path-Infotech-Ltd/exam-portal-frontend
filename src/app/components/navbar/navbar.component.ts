@@ -3,6 +3,8 @@ import { LoginService } from 'src/app/services/login.service';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { MenuService } from 'src/app/services/menu.service';
+import { getMatIconNameNotFoundError } from '@angular/material/icon';
 
 @Component({
   selector: 'app-navbar',
@@ -14,6 +16,7 @@ export class NavbarComponent implements OnInit {
   isLoggedIn=false;
   user=null;
   image: string;
+  menu=null;
   // imageSrc = 'assets/yashkmr0680.jpeg'  
 
 
@@ -30,6 +33,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(public login: LoginService,
     private _userService: UserService,
+    private _menuService: MenuService,
     private router: Router,) { 
     // this.image='.../../../assets/sunilkmr5775.jpeg';
   }
@@ -40,12 +44,24 @@ export class NavbarComponent implements OnInit {
     this.user=this.login.getUser();
 
     this.login.loginStatusSubject.asObservable().subscribe(data=>{
-     
          this.isLoggedIn=this.login.isLoggedIn();
          this.user=this.login.getUser();
          this.getProfilePic();
     })
     this.getProfilePic();
+    this. getMenu();
+  }
+ public  getMenu() {
+    this._menuService.getAllMenu().subscribe(
+      (menu:any)=>{
+        this.menu=menu;
+       console.log('MENU ITMES: ',menu);
+      //  alert('MENU ITMES: '+menu);
+      },
+      (error)=>{
+        alert('error');
+      });
+    throw new Error('Method not implemented.');
   }
 
   getProfilePic(){
